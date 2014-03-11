@@ -1,0 +1,11 @@
+{
+	"server": {
+		"port": 3000,
+		"cookieOptions": {
+			"secret": "youtube-sample-app"
+		}
+	},
+	"public": {
+
+	}
+}
