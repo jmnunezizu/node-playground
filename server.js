@@ -32,7 +32,8 @@ require('./src/api-v1')(app);
 app.use(enchilada({
     src: __dirname + '/public',
     routes: {
-        '/js/lib/html5shiv.js': './js/lib/html5shiv.js'
+        '/js/lib/html5shiv.js': './js/lib/html5shiv.js',
+        '/js/bootstrap/bootstrap.min.js': './js/bootstrap/bootstrap.min.js'
     }
 }));
 // serve stylus stylesheets as compiled css
