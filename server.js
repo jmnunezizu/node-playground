@@ -12,6 +12,8 @@ app.set('view engine', 'jade');
 
 app.use(express.logger('short'));
 
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
+
 // session support
 var cookieSecret = config.get('server:cookieOptions:secret');
 app.use(cookieParser(cookieSecret));

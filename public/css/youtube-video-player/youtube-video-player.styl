@@ -5,17 +5,18 @@ inline()
     vertical-align arguments
     
 #youtube-video-player
-    width 854px
-    height 457px
+    //height 494px
     background #fff
+    padding 1px 10px 20px
 
     .tv-player-header
         height 44px
+        color #f94400
 
     .video-player
         inline(top)
-        width 640px
-        height 360px
+        width 799px
+        height 450px
         background-color #000
 
     .playlist
@@ -45,18 +46,18 @@ inline()
             margin-top 9px
 
         ul
-            height 323px
-            overflow-y hidden
+            height 362px
+            overflow-y scroll
             list-style none
-            width 208px
+            //width 208px
+            width 320px
             position relative
 
             li
                 position relative
-                padding-top 4px
-                background url(img('moshitv/playlist-video-entry-bg.png')) no-repeat 0 0
                 margin-left 4px
-                height 50px
+                margin-bottom 4px
+                //height 50px
 
                 &.last
                     margin-bottom 0
@@ -64,7 +65,7 @@ inline()
                 
                 &:hover
                     a
-                        background-color #2e009b
+                        background-color #f94400
 
                 &.active
                     a
@@ -74,16 +75,15 @@ inline()
 
                 a
                     display block
-                    padding-left 4px
-                    height 50px
+                    //padding-left 4px
+                    //height 50px
 
                     img
-                        width 64px
+                        //width 64px
                         inline(middle)
                     h4
                         inline(middle)
-                        font-family Karla, sans-serif
-                        font-size 0.75em
-                        color #fff
+                        font-size 1em
                         width 119px
-                        padding 5px 0 5px 10px
+                        padding-left 10px
+                        //padding 5px 0 5px 10px

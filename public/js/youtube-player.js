@@ -60,34 +60,6 @@ var PlaylistEntryView = Backbone.View.extend({
         }
 
         return headingText;
-    },
-
-    /**
-     * This method has performance issues in IE.
-     */
-    fixTextOverflow: function() {
-        var anchorEl = this.$el.find('a');
-        var overflow = anchorEl.css('overflow');
-        anchorEl.css('overflow', 'auto');
-
-        if (this.isTextOverflowing(anchorEl)) {
-            var titleEl = anchorEl.find('h4');
-            var titleText = titleEl.text();
-            var newTitleText = titleText.substring(0, titleText.lastIndexOf(' ')).concat('...');
-            titleEl.text(newTitleText);
-
-            while (this.isTextOverflowing(anchorEl)) {
-                titleText = titleEl.text();
-                newTitleText = titleText.substring(0, titleText.lastIndexOf(' ')).concat('...');
-                titleEl.text(newTitleText);
-            }
-        }
-
-        anchorEl.css('overflow', overflow);
-    },
-
-    isTextOverflowing: function(anchorEl) {
-        return anchorEl.innerHeight() < anchorEl.prop('scrollHeight');
     }
 
 });
@@ -145,8 +117,6 @@ var PlaylistView = Backbone.View.extend({
         // we calculate the video entry height (used for scrolling)
         this.videoEntryHeight = this.$el.find('.video-list li:first').innerHeight();
 
-        // trigger text overflow fix
-        //_.each(@playlistEntryViews, (playlistEntry, index) -> playlistEntry.fixTextOverflow())
         this.updateScrollButtonStates()
     },
 
@@ -261,8 +231,8 @@ var VideoPlayerView = Backbone.View.extend({
             this.player.loadVideoById({ videoId: video.snippet.resourceId.videoId });
         } else {
             this.player = new YT.Player('player', {
-                width: '640',
-                height: '360',
+                width: '799',
+                height: '450',
                 videoId: video.snippet.resourceId.videoId,
                 playerVars: {
                     rel: 0,
@@ -298,7 +268,7 @@ var VideoPlayerView = Backbone.View.extend({
     },
 
     hasPlayerBeenInitialised: function() {
-        return this.player !== null && typeof this.played !== 'undefined';
+        return this.player !== null && typeof this.player !== 'undefined';
     },
 
     onYouTubeIframeAPIReady: function() {        
