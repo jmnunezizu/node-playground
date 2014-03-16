@@ -110,9 +110,9 @@ var PlaylistView = Backbone.View.extend({
         this.collection.each(this.renderVideoEntry);
 
         // append the elements to the container
-        this.$el.append(scrollUpEl);
+        //this.$el.append(scrollUpEl);
         this.$el.append(this.listContainerEl);
-        this.$el.append(scrollDownEl);
+        //this.$el.append(scrollDownEl);
 
         // we calculate the video entry height (used for scrolling)
         this.videoEntryHeight = this.$el.find('.video-list li:first').innerHeight();
