@@ -5,7 +5,7 @@ module.exports = youtube;
 
 function youtube(apiKey) {
     var params = {
-        maxResults: 50
+        maxResults: 10
     };
     return {
         video: function(videoId, cb) {
