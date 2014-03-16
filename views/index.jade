@@ -1,12 +1,12 @@
 extends layouts/layout
 
 block scripts
-	script(src='/js/test.js')
+    script(src='/js/youtube-player.js')
 
 block inlineScripts
-	script.
-		require('/js/test.js')('John Lennon');
+    script.
+        require('/js/youtube-player.js')();
 
 block content
-	article#index(role="index")
-		h1 Welcome!
+    article#index(role="index")
+        h1 YouTube Player!

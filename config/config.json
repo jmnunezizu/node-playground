@@ -1,14 +1,16 @@
 {
-	"server": {
-		"port": 3000,
-		"cookieOptions": {
-			"secret": "youtube-sample-app"
-		},
-		"youtube": {
-			"playlistId": "PL0DA2B4BAA4791B0F"
-		}
-	},
-	"public": {
+    "server": {
+        "port": 3000,
+        "cookieOptions": {
+            "secret": "youtube-sample-app"
+        },
+        "googleapis": {
+        },
+        "youtube": {
+            "playlistId": "PL0DA2B4BAA4791B0F"
+        }
+    },
+    "public": {
 
-	}
+    }
 }
