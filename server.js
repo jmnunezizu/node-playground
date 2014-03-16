@@ -23,6 +23,9 @@ app.use(bodyParser());
 // register app routes
 require('./src/routes')(app);
 
+// register api
+require('./src/api-v1')(app);
+
 // serve js files as browserified bundles
 app.use(enchilada({
     src: __dirname + '/public',

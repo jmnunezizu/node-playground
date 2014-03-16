@@ -1,12 +1,23 @@
 extends layouts/layout
 
+block styles
+    link(href="/css/youtube-video-player/youtube-video-player.css", rel="stylesheet")
+
 block scripts
     script(src='/js/youtube-player.js')
 
 block inlineScripts
     script.
-        require('/js/youtube-player.js')();
+        var videoPlayer = require('/js/youtube-player.js')({
+            playlist: {
+                url: '/api/1.0/videoplayer/playlist/PL0DA2B4BAA4791B0F'
+            }
+        });
+        videoPlayer.render();
+        $('#video-player-container').html(videoPlayer.el);
 
 block content
     article#index(role="index")
         h1 YouTube Player!
+
+        div#video-player-container

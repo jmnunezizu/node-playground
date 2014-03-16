@@ -308,7 +308,7 @@ var VideoPlayerView = Backbone.View.extend({
 
 var YouTubePlayerView = Backbone.View.extend({
 
-    id: 'moshi-tv-player',
+    id: 'youtube-video-player',
 
     initialize: function(options) {
         this.options = options;
@@ -359,7 +359,7 @@ var YouTubePlayerView = Backbone.View.extend({
 
 });
 
-module.exports = function(container, options) {
+module.exports = function(options) {
     defaults = {
         autoplayVideo: false
     };

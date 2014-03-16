@@ -4,8 +4,8 @@ html(lang="en")
         title=Sample
 
         link(href="/css/reset.css", rel="stylesheet")
-        link(href="/css/layout.css", rel="stylesheet")
         link(href="/css/bootstrap/bootstrap.min.css", rel="stylesheet")
+        link(href="/css/layout.css", rel="stylesheet")
 
         block styles
 
@@ -15,14 +15,9 @@ html(lang="en")
         div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
             div.container
                 div.navbar-header
-                    button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar                    
-                    a.navbar-brand(href="#")
+                    a.navbar-brand.logo(href="#")
                         img(src="/images/fortyfives-logo.png", alt="FortyFives")
-                        | 45s
+                        | fortyfives
                 div.collapse.navbar-collapse
                       ul.nav.navbar-nav
                         li.active: a(href="#") Home
