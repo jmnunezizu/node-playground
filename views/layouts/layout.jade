@@ -3,10 +3,16 @@ html(lang="en")
 	head
 		title=Sample
 
+		link(rel="stylesheet", href="/styles/reset.css")
+
 		block styles
+
+		script(src="/js/lib/html5shiv.js")
 
 	body
 		#container
 			block content
 
 		block scripts
+
+		block inlineScripts
