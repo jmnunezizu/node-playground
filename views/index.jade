@@ -1,21 +1,29 @@
 extends layouts/layout
 
+block title
+    | Home
+
 block styles
-    link(href="/css/youtube-video-player/youtube-video-player.css", rel="stylesheet")
-
-block scripts
-    script(src='/js/youtube-player.js')
-
-block inlineScripts
-    script.
-        var videoPlayer = require('/js/youtube-player.js')({
-            playlist: {
-                url: '/api/1.0/videoplayer/playlist/PL0DA2B4BAA4791B0F'
-            }
-        });
-        videoPlayer.render();
-        $('#video-player-container').html(videoPlayer.el);
+    link(href="/css/index.css", rel="stylesheet")
 
 block content
     article#index(role="index")
-        div#video-player-container(style="margin-top: 20px;")
+        div.jumbotron
+            h1 Welcome, stranger!
+            p The Node.js Playground is the place in where node-related technologies are tested and showcased. Let the fun begin!
+
+        h2 Libraries, modules or frameworks used
+
+        table.table.table-bordered.table-hover
+            thead
+                tr
+                    th.col-md-2 Name
+                    th Version
+                    th Description
+            tbody
+                each dependency in dependencies
+                    tr
+                        td: a(href="#{dependency.url}") #{dependency.name}
+                        td #{dependency.version}
+                        td #{dependency.description}
+

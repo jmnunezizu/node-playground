@@ -66,14 +66,6 @@ var PlaylistEntryView = Backbone.View.extend({
 
 var PlaylistView = Backbone.View.extend({
     
-    events: {
-        'click .scroll-button-up': 'onScrollButtonUpClick',
-        'click .scroll-button-down': 'onScrollButtonDownClick'
-    },
-
-    FIRST_VIDEO: 1,
-    ANIMATION_SPEED: 250,
-
     initialize: function(config) {
         this.app = config.app;
         this.el = config.el;
@@ -103,110 +95,14 @@ var PlaylistView = Backbone.View.extend({
     },
 
     render: function() {
-        var scrollUpEl = $('<a>', { 'class': 'scroll-button scroll-button-up img-replace', href: '#' }).text('Up');
-        var scrollDownEl = $('<a>', { 'class': 'scroll-button scroll-button-down img-replace', href: '#' }).text('Down');
-
         this.listContainerEl = $('<ul>', { 'class': 'video-list' });
         this.collection.each(this.renderVideoEntry);
 
         // append the elements to the container
-        //this.$el.append(scrollUpEl);
         this.$el.append(this.listContainerEl);
-        //this.$el.append(scrollDownEl);
 
         // we calculate the video entry height (used for scrolling)
         this.videoEntryHeight = this.$el.find('.video-list li:first').innerHeight();
-
-        this.updateScrollButtonStates()
-    },
-
-    onScrollButtonUpClick: function(e) {
-        e.preventDefault();
-
-        if (this.isButtonDisabled('.scroll-button-up') || this.isPlaylistScrolling()) {
-            return;
-        } else {
-            this.scrollPlaylist('up');
-            this.updateScrollButtonStates();
-        }
-    },
-
-    onScrollButtonDownClick: function(e) {
-        e.preventDefault();
-
-        if (this.isButtonDisabled('.scroll-button-down') || this.isPlaylistScrolling()) {
-            return;
-        } else {
-            this.scrollPlaylist('down');
-            this.updateScrollButtonStates();
-        }
-    },
-
-    scrollPlaylist: function(direction, numRows) {
-        numRows = numRows || 1;
-        this.$el.find('.video-list').addClass('scrolling');
-
-        var firstVideoEntry = this.$el.find('.video-list li:first');
-        var topValue = firstVideoEntry.css('top');
-        
-        var currentOffset = null;
-        if (topValue == 'auto') {
-            currentOffset = 0;
-        } else {
-            currentOffset = parseInt(topValue, 10);
-        }
-        var offset = currentOffset;
-
-        if (direction === 'up') {
-            offset = currentOffset + (this.videoEntryHeight * numRows);
-            this.currentVideo = this.currentVideo - numRows;
-        } else if (direction === 'down') {
-            this.currentVideo = this.currentVideo + numRows;
-            offset = currentOffset - (this.videoEntryHeight * numRows);
-        } else {
-            throw new Error('Unknown direction ' + direction + '. Only up and down are supported.');
-        }
-
-        var self = this;
-        this.$el.find('.video-list li').animate({ 'top': "#{offset}px" }, this.ANIMATION_SPEED, 'linear', function() {
-            self.$el.find('.video-list').removeClass('scrolling');
-        });
-    },
-
-    updateScrollButtonStates: function() {
-        if (this.isFirstVideo()) {
-            this.disableScrollButton('.scroll-button-up');
-            this.enableScrollButton('.scroll-button-down');
-        } else if (this.hasReachedLastVideo()) {
-            this.disableScrollButton('.scroll-button-down');
-            this.enableScrollButton('.scroll-button-up');
-        } else {
-            this.enableScrollButton('.scroll-button');
-        }
-    },
-
-    isButtonDisabled: function(className) {
-        return this.$el.find(className).hasClass('disabled');
-    },
-
-    isPlaylistScrolling: function() {
-        return this.$el.find('.video-list').hasClass('scrolling');
-    },
-
-    disableScrollButton: function(className) {
-        return this.$el.find(className).addClass('disabled');
-    },
-
-    enableScrollButton: function(className) {
-        return this.$el.find(className).removeClass('disabled');
-    },
-
-    isFirstVideo: function() {
-        return this.currentVideo === this.FIRST_VIDEO;
-    },
-
-    hasReachedLastVideo: function() {
-        return this.collection.length - this.currentVideo + 1 === this.totalVisibleVideos;
     }
 
 });
@@ -289,7 +185,7 @@ var YouTubePlayerView = Backbone.View.extend({
     render: function() {
         // create the video player
         var headerContainerEl = $('<div>', { 'class': 'tv-player-header' });
-        var headerEl = $('<h2>', { 'class': 'video-title' }).text('45s');
+        var headerEl = $('<h2>', { 'class': 'video-title' }).text(this.options.playerTitle);
         headerEl.appendTo(headerContainerEl);
         headerContainerEl.appendTo(this.$el);
 
@@ -331,6 +227,7 @@ var YouTubePlayerView = Backbone.View.extend({
 
 module.exports = function(options) {
     defaults = {
+        playerTitle: 'YouTube Video Player',
         autoplayVideo: false
     };
 

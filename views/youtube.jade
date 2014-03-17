@@ -1,0 +1,28 @@
+extends layouts/layout
+
+block title
+    | YouTube API
+
+block styles
+    link(href="/css/youtube-video-player/youtube-video-player.css", rel="stylesheet")
+    link(href="/css/youtube/youtube.css", rel="stylesheet")
+
+block content
+    article#youtube(role="youtube")
+        div#video-player-container
+
+block scripts
+    script(src='/js/youtube-player.js')
+
+block inlineScripts
+    script.
+        $(document).ready(function() {
+            var videoPlayer = require('/js/youtube-player.js')({
+                playerTitle: 'YouTube Video Player',
+                playlist: {
+                    url: '/api/1.0/videoplayer/playlist/PL0DA2B4BAA4791B0F'
+                }
+            });
+            videoPlayer.render();
+            $('#video-player-container').html(videoPlayer.el);
+        });

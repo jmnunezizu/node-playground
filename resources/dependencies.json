@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Express",
+        "version": "3.5",
+        "description": "web application framework for Node",
+        "url": "http://expressjs.com/"
+    },
+    {
+        "name": "Enchilada",
+        "version": "0.8.0",
+        "description": "serve up your javascript files all wrapped up using Browserify. Yum!",
+        "url": "https://github.com/defunctzombie/node-enchilada"
+    },
+    {
+        "name": "Browserify",
+        "version": "3.32.1",
+        "description": "require('modules') in the browser",
+        "url": "http://browserify.org/"
+    },
+    {
+        "name": "Jade",
+        "version": "1.3.0",
+        "description": "Node template engine",
+        "url": "http://jade-lang.com/"
+    },
+    {
+        "name": "Stylus",
+        "version": "0.42.3",
+        "description": "Expressing, dynamic, robust CSS",
+        "url": "http://learnboost.github.io/stylus/"
+    },
+    {
+        "name": "Body Parser",
+        "version": "1.0.0",
+        "description": "Connect's body parsing middleware.",
+        "url": "https://github.com/expressjs/body-parser"
+    },
+    {
+        "name": "Cookie Parser",
+        "version": "1.0.1",
+        "description": "Parse Cookie header and populate req.cookies with an object keyed by the cookie names.",
+        "url": "https://github.com/expressjs/cookie-parser"
+    },
+    {
+        "name": "express-session",
+        "version": "1.0.2",
+        "description": "Session store for Connect/Express.",
+        "url": "https://github.com/expressjs/session"
+    },
+    {
+        "name": "nconf",
+        "version": "0.6.9",
+        "description": "Hierarchical node.js configuration with files, environment variables, command-line arguments, and atomic object merging.",
+        "url": "https://github.com/flatiron/nconf"
+    },
+    {
+        "name": "googleapis",
+        "version": "0.6.1",
+        "description": "Google's officially supported node.js client library for accessing Google APIs, it also supports authorization and authentication with OAuth 2.0.",
+        "url": "https://github.com/google/google-api-nodejs-client/"
+    },
+    {
+        "name": "Backbone.js",
+        "version": "1.1.2",
+        "description": "Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.",
+        "url": "http://backbonejs.org/"
+    },
+    {
+        "name": "Underscore.js",
+        "version": "1.6.0",
+        "description": "Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: “If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?” … and the tie to go along with jQuery's tux and Backbone's suspenders.",
+        "url": "http://underscorejs.org/"
+    },
+    {
+        "name": "jQuery",
+        "version": "1.11.0",
+        "description": "JavaScript library for DOM operations.",
+        "url": "http://jquery.com/"
+    },
+    {
+        "name": "Bootstrap",
+        "version": "3.1.1",
+        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+        "url": "http://getbootstrap.com/"
+    },
+    {
+        "name": "Mocha",
+        "version": "1.18.0",
+        "description": "the fun, simple, flexible JavaScript test framework.",
+        "url": "http://visionmedia.github.io/mocha/"
+    },
+    {
+        "name": "Sinon.js",
+        "version": "1.9.0",
+        "description": "Standalone test spies, stubs and mocks for JavaScript.",
+        "url": "http://sinonjs.org/"
+    },
+    {
+        "name": "Mockery",
+        "version": "1.4.0",
+        "description": "Simplifying the use of mocks with Node.js.",
+        "url": "https://github.com/mfncooper/mockery"
+    }
+]

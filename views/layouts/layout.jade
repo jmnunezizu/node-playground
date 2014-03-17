@@ -1,31 +1,26 @@
 doctype html
 html(lang="en")
     head
-        title fortyfives
+        title
+            block title
+            |  - Node.js Playground
 
         link(href="/css/reset.css", rel="stylesheet")
         link(href="/css/bootstrap/bootstrap.min.css", rel="stylesheet")
         link(href="/css/layout.css", rel="stylesheet")
+        link(href="/css/navigation.css", rel="stylesheet")
 
         block styles
 
         script(src="/js/lib/html5shiv.js")
 
     body
-        div.navbar.navbar-inverse.navbar-fixed-top(role="navigation")
-            div.container
-                div.navbar-header
-                    a.navbar-brand.logo(href="#")
-                        img(src="/images/fortyfives-logo.png", alt="FortyFives")
-                        | fortyfives
-                div.collapse.navbar-collapse
-                      ul.nav.navbar-nav
-                        li.active: a(href="#") Home
-                        li: a(href="#about") About
-        div.container
+        include ../includes/navigation
+
+        div.container.main-container
             block content
 
-        div#footer
+        div#footer.navbar-default
             div.container
                 a.text-muted(href="https://twitter.com/intent/user?screen_name=jmnunezizu" target="_blank") @jmnunezizu
 

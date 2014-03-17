@@ -11,7 +11,6 @@ var app = express();
 app.set('view engine', 'jade');
 
 app.use(express.logger('short'));
-
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 
 // session support
@@ -23,10 +22,11 @@ app.use(session({ secret: cookieSecret, key: 'sessionId' }));
 app.use(bodyParser());
 
 // register app routes
-require('./src/routes')(app);
+app.use(require('./src/routes'));
+//require('./src/routes')(app);
 
 // register api
-require('./src/api-v1')(app);
+app.use('/api/1.0/', require('./src/api-v1'));
 
 // serve js files as browserified bundles
 app.use(enchilada({
