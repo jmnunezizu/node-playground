@@ -20,7 +20,7 @@ block inlineScripts
             var videoPlayer = require('/js/youtube-player.js')({
                 playerTitle: 'YouTube Video Player',
                 playlist: {
-                    url: '/api/1.0/videoplayer/playlist/PL0DA2B4BAA4791B0F'
+                    url: '/api/1.0/videoplayer/playlist/' + '#{playlistId}'
                 }
             });
             videoPlayer.render();
